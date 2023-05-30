@@ -7,7 +7,7 @@ require('./config/database');
 
 //? There's no models to require at this time (Thurs @ lunchbreak), but we'll add them as we build out SEI CAFE:
 // Require the Mongoose models
-// const User = require('./models/user');
+const User = require('./models/user');
 // const Item = require('./models/item');
 // const Category = require('./models/category');
 // const Order = require('./models/order');

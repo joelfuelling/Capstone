@@ -1,7 +1,8 @@
 
 export default function NewOrderPage() {
-    return (
+    return (   
         <>
+        {console.log("NewOrderPage")}
         <h1>New order page</h1>
         </>
     )

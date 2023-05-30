@@ -6,6 +6,7 @@ const path = require('path');
 const favicon = require('serve-favicon');
 // favicon is NEW - for server routing
 const logger = require('morgan');
+const checkToken = require('./config/checkToken')
 
 const app = express();
 
@@ -15,10 +16,11 @@ app.use(express.json());
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 // Configure both serve-favicon & static middleware to serve from the production 'build' folder
 app.use(express.static(path.join(__dirname, 'build')));
+app.use(checkToken)
 
 
-// Put API routes here, before the "catch all" route
-
+//! Put API routes here, before the "catch all" route
+app.use('/api/users', require('./routes/api/users'))
 // The following "catch all" route (note the *) is necessary to return the index.html on all non-AJAX requests
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));

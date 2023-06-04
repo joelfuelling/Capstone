@@ -1,7 +1,7 @@
 // File name is UpperCase because it is a component.
 import AuthPage from '../AuthPage/AuthPage';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
+import NewCoursePage from '../NewCoursePage/NewCoursePage';
+import CourseHistoryPage from '../CourseHistoryPage/CourseHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
 //! PAY ATTENTION TO FILE PATHS (above)!
 import './App.css';
@@ -23,8 +23,8 @@ export default function App() {
       <>
         <NavBar setUser={setUser} user={user}/>
         <Routes>
-          <Route path="/orders" element={<OrderHistoryPage />} />
-          <Route path="/orders/new" element={<NewOrderPage />} />
+          <Route path="/orders" element={<CourseHistoryPage />} />
+          <Route path="/orders/new" element={<NewCoursePage />} />
         </Routes>  
       </> 
       :

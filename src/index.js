@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './pages/App/App';
 import {BrowserRouter as Router} from 'react-router-dom'
+// The entire app get's wrapped with Router, below.
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

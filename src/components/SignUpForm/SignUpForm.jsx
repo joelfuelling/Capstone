@@ -1,11 +1,7 @@
 //! Because this one is a class, it has to import the parent class first - 
 import { Component } from 'react';
-
  // Data flow (FOR DEMO example) - SignUpForm.jsx <--> users-service.js <--> users-api.js <-Internet-> server.js (Express)
-
  import { signUp } from '../../utilities/users-service';
-
-
 
 export default class SignUpForm extends Component {
     //? constructor(){

@@ -11,4 +11,4 @@ Deployment: (Heroku Link goes here)
 Trello Board: https://trello.com/b/AA94Aa9p/capstone
 
 
-*.gitignore is not working as intended. Sunday - 3pm*
+*.gitignore is not working as intended. Sunday - 3pm**

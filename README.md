@@ -9,3 +9,6 @@ MERN stack
 Getting Started:
 Deployment: (Heroku Link goes here)
 Trello Board: https://trello.com/b/AA94Aa9p/capstone
+
+
+*.gitignore not working as intended. Sunday - 3pm*

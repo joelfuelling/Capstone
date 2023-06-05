@@ -5,8 +5,8 @@ export default async function sendRequest(url, method='Get', payload=null){
     // used to include a data payload, set headers, etc. 
     const options = { method };
     if (payload) {
-        //? Payload is the "data" of the token.
-        //if payload exists, parse the headers data to json data
+        //? Payload is the "data" .
+        //if payload exists, parse the headers data 
         options.headers = { 'Content-Type': 'application/json' };
         //What are we sending? (below) req.body.
         options.body = JSON.stringify(payload);

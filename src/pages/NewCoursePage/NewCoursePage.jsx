@@ -1,9 +1,10 @@
-
+import NewCourseForm from "../../components/NewCourseForm/NewCourseForm"
 export default function NewCoursePage() {
     return (   
         <>
         {console.log("NewCoursePage")}
-        <h1>New course page</h1>
+        <h1>New course </h1>
+        <NewCourseForm></NewCourseForm>
         </>
     )
 }

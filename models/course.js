@@ -7,8 +7,6 @@ const Schema = mongoose.Schema;
 
 const CourseSchema = new Schema({
     name: {type: String, required: true},
-    category: {type: String, required: true},
-    // category: Enum with “other”?
     recurring: {type: Boolean, required: true},
     startDate: {type: Date, required: true},
     endDate: {type: Date, required: false},
@@ -31,5 +29,5 @@ const CourseSchema = new Schema({
     timestamps: true,
 })
 
-module.exports = mongoose.model('Course', userSchema);
+module.exports = mongoose.model('Course', CourseSchema);
 

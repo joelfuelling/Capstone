@@ -11,11 +11,11 @@ export default function CourseIndexPage() {
            setCourses(courses)
         }
         getCourses()
-    }, []) // This dependency array stops the cycle of "State updated -> rerender -> useEffect (updating state) -> rerender, etc...
+    }, []) //! This dependency array stops the cycle of "State updated -> rerender -> useEffect (updating state) -> rerender, etc...
     return (
         <>
         <h1>Courses List</h1>
-        <CoursesList courses={setCourses}></CoursesList>
+        <CoursesList courses={courses}></CoursesList>
         </>
     )
 }

@@ -9,3 +9,7 @@ const BASE_URL = '/api/courses'
 export async function coursesIndexRequest(){
     return sendRequest(BASE_URL)
 }
+
+export async function createCourseRequest(courseData){
+    return sendRequest(BASE_URL, "POST", courseData)
+}

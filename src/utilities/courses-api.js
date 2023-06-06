@@ -17,3 +17,7 @@ export async function createCourseRequest(courseData){
 export async function getCourseRequest(courseId){
     return sendRequest(`${BASE_URL}/${courseId}`)
 }
+
+export async function deleteCourseRequest(courseId){
+    return sendRequest(`${BASE_URL}/${courseId}`, "DELETE")
+}

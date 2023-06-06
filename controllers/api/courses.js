@@ -4,6 +4,7 @@ module.exports = {
   index,
   create,
   detail,
+  deleteCourse,
   // above is shorthand for 'create: create'
 };
 
@@ -37,6 +38,20 @@ async function detail(req, res){
         //! const course = await Course.findById(req.params.id)
         const course = await Course.findById(req.params.id)
         res.status(200).json(course)
+    }catch(err){
+        console.log(err)
+        res.status(400).json(err)
+    }
+}
+
+//* 'delete' is a reserved JavaScript term so we have to add something ot the function.
+// We don't want anything returned from delete, obviously. So, we put in {data: 'success}
+async function deleteCourse(req, res){
+    try{
+        await Course.findByIdAndDelete(req.params.id)
+        res.status(200).json({
+            data: 'success'
+        })
     }catch(err){
         console.log(err)
         res.status(400).json(err)

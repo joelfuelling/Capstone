@@ -1,6 +1,6 @@
 
 
-export default function CourseDetail({course}){
+export default function CourseDetail({course, handleDelete}){
     return (
         <>
         <div>
@@ -13,6 +13,7 @@ export default function CourseDetail({course}){
             {course.suppliesProvided && <p>Supplies Provided</p>}
             {course.recurring && <p>Recurring Classes</p>}
             <p>Description: {course.description}</p>
+            <button onClick={handleDelete}>DELETE {course.name}</button>
             
 
             

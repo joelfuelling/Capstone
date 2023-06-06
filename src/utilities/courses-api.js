@@ -21,3 +21,7 @@ export async function getCourseRequest(courseId){
 export async function deleteCourseRequest(courseId){
     return sendRequest(`${BASE_URL}/${courseId}`, "DELETE")
 }
+
+export async function updateCourseRequest(courseId, updatedCourse){
+    return sendRequest(`${BASE_URL}/${courseId}`, "PUT", updatedCourse)
+}

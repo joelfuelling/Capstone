@@ -43,7 +43,7 @@ export default function CourseDetailPage(){
         :
         error ? <p>{error}</p> 
         :
-        <CourseDetail course={course} handleDelete={handleDelete}></CourseDetail>
+        <CourseDetail course={course} setCourse={setCourse} handleDelete={handleDelete}></CourseDetail>
         }
         </>
     )

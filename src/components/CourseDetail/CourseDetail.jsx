@@ -1,6 +1,16 @@
+import {useState} from 'react'
+import EditCourseForm from './EditCourseForm/EditCourseForm'
 
-
-export default function CourseDetail({course, handleDelete}){
+// setCourse is added so that editForm can be passed the "new" course information.
+export default function CourseDetail({course, setCourse, handleDelete}){
+    // editForm starts as false so that 'EDIT' appears first, rather than Close Editor
+    const [editFormIsOpen, setEditFormIsOpen] = useState(false)
+    function toggleEditForm(){
+        // Setup the toggle of the edit button to change text (ternary below)
+        setEditFormIsOpen((prevState)=> {
+            return !prevState
+        })
+    }
     return (
         <>
         <div>
@@ -14,9 +24,13 @@ export default function CourseDetail({course, handleDelete}){
             {course.recurring && <p>Recurring Classes</p>}
             <p>Description: {course.description}</p>
             <button onClick={handleDelete}>DELETE {course.name}</button>
-            
+            <button onClick={toggleEditForm}>
+            {editFormIsOpen ? "Close Editor" : "EDIT"}
+            </button>
+            { editFormIsOpen && 
+                <EditCourseForm course={course} setCourse={setCourse} setEditFormIsOpen={setEditFormIsOpen}></EditCourseForm>
+            }
 
-            
         </div>
         
         </>

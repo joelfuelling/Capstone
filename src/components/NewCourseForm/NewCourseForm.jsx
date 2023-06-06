@@ -36,7 +36,6 @@ export default function NewCourseForm(){
             endDate: endRef.current.value,
             classLength: lenRef.current.value,
             price: priceRef.current.value,
-            //! See 'daysofweek.js' for 
             daysfOfWeek: selectedDays,
             // Array.from(daysRef.current.selectedOptions).map(day => day.value),
         }
@@ -44,6 +43,7 @@ export default function NewCourseForm(){
         // 1 - 'Try' to create a newresopnse from the db with the above newCourse
         try {
             const newCourseResponse = await createCourseRequest(newCourse)
+            console.log(newCourse)
             navigate('/courses')
         //catach and set the error if there is one.
         }catch(err){

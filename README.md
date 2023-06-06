@@ -18,3 +18,8 @@ Altered String type of daysOfWeek to an array of strings per instructors recomme
     // 'multiple' added to select in html to allow multiple selections of 'daysOfWeek' from dropdown.
     // 'const daysRef = useRef([])' needed an empty array instead of string (SEE THE PATTERN!?)
     // allowed for multiple selection input of daysOfWeel dropdown. Could not integrate selecting/deselecting days by click this time around (have to use Cmd + click)
+    // Completed up to edit/delete.
+
+Tuesday (morning/afternoon): Completed delete and edit routes.
+    - Days aren't logging in when adding course, need to fix (it was working).
+    

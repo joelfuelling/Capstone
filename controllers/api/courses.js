@@ -3,6 +3,7 @@ const Course = require('../../models/course')
 module.exports = {
   index,
   create,
+  detail,
   // above is shorthand for 'create: create'
 };
 
@@ -32,8 +33,12 @@ async function create(req, res) {
 
 async function detail(req, res){
     try {
-        const course = await Course.findById()
+        //! 3 0F 5 - DETAIL (show)
+        //! const course = await Course.findById(req.params.id)
+        const course = await Course.findById(req.params.id)
+        res.status(200).json(course)
     }catch(err){
+        console.log(err)
         res.status(400).json(err)
     }
 }

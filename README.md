@@ -9,3 +9,12 @@ MERN stack
 Getting Started:
 Deployment: (Heroku Link goes here)
 Trello Board: https://trello.com/b/AA94Aa9p/capstone
+
+Sunday: Completed initial setup. New form and create route working. courses.map is not working at this time.
+
+Monday (morning/afternoon): Fixed map by reworking props correctly. 
+Altered String type of daysOfWeek to an array of strings per instructors recommendation...
+    // Starting from the model 'String' needed changed to [String] to allow the days of the week to be an array rather than one long String. default needed set to []
+    // 'multiple' added to select in html to allow multiple selections of 'daysOfWeek' from dropdown.
+    // 'const daysRef = useRef([])' needed an empty array instead of string (SEE THE PATTERN!?)
+    // allowed for multiple selection input of daysOfWeel dropdown. Could not integrate selecting/deselecting days by click this time around (have to use Cmd + click)

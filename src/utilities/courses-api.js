@@ -13,3 +13,7 @@ export async function coursesIndexRequest(){
 export async function createCourseRequest(courseData){
     return sendRequest(BASE_URL, "POST", courseData)
 }
+
+export async function getCourseRequest(courseId){
+    return sendRequest(`${BASE_URL}/${courseId}`)
+}

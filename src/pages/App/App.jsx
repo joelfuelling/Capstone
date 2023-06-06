@@ -2,6 +2,7 @@
 import AuthPage from '../AuthPage/AuthPage';
 import NewCoursePage from '../NewCoursePage/NewCoursePage';
 import CourseIndexPage from '../CourseIndexPage/CourseIndexPage';
+import CourseDetailPage from '../CourseDetailPage/CourseDetailPage';
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../../components/NavBar/NavBar';
 //! PAY ATTENTION TO FILE PATHS (above)!
@@ -10,6 +11,7 @@ import { useState } from "react";
 import { Routes, Route } from 'react-router-dom';
 // Add the following import
 import { getUser } from '../../utilities/users-service';
+
 // getUser is checking for an already existing token in the browser!
   //? This way, you don't have to constantly log back in (depending on how long it's been)
 
@@ -27,6 +29,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/courses" element={<CourseIndexPage />} />
           <Route path="/courses/new" element={<NewCoursePage />} />
+          <Route path="/courses/:courseId" element={<CourseDetailPage />} />
         </Routes>  
       </> 
       :

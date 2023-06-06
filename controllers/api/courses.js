@@ -4,6 +4,8 @@ module.exports = {
   index,
   create,
   detail,
+  deleteCourse,
+  updateCourse
   // above is shorthand for 'create: create'
 };
 
@@ -40,5 +42,27 @@ async function detail(req, res){
     }catch(err){
         console.log(err)
         res.status(400).json(err)
+    }
+}
+
+async function deleteCourse(req, res) {
+    try{
+        const course = await Course.findByIdAndDelete(req.params.id)
+        res.status(200).json({
+            data: 'success'
+        })
+    }catch(err){
+        res.status(400).json(err)
+    }
+}
+
+// {new: true} is required, or else it would return the previoulsy (non-edited) version from the Db.
+async function updateCourse(req, res){
+    try {
+    const updatedCourse = await Course.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    res.status(200).json(updatedCourse)
+    } catch(err){
+        console.log(err)
+        res.status(400).json('Bad update request')
     }
 }

@@ -43,7 +43,7 @@ export default function NewCourseForm(){
         // 1 - 'Try' to create a newresopnse from the db with the above newCourse
         try {
             const newCourseResponse = await createCourseRequest(newCourse)
-            console.log(newCourse)
+            console.log(newCourseResponse)
             navigate('/courses')
         //catach and set the error if there is one.
         }catch(err){

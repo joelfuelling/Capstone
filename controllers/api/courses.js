@@ -47,6 +47,8 @@ async function detail(req, res){
 
 async function deleteCourse(req, res) {
     try{
+        //! 4 0F 5 - DELETE
+        //! const course = await Course.findByIdAndDelete(req.params.id)
         const course = await Course.findByIdAndDelete(req.params.id)
         res.status(200).json({
             data: 'success'
@@ -59,6 +61,8 @@ async function deleteCourse(req, res) {
 // {new: true} is required, or else it would return the previoulsy (non-edited) version from the Db.
 async function updateCourse(req, res){
     try {
+        //! 5 OF 5 - UPDATE
+        //! const updatedCourse = awit Course.findByIdAndUpdate(req.params.id, req.body, {new: true})
     const updatedCourse = await Course.findByIdAndUpdate(req.params.id, req.body, {new: true})
     res.status(200).json(updatedCourse)
     } catch(err){

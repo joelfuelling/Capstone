@@ -31,5 +31,22 @@ const CourseSchema = new Schema({
     timestamps: true,
 })
 
+CourseSchema.pre('save', function(next) {
+    if (this.startDate) return next()
+        const startDate = new Date(this.startDate);
+        startDate.setHours(0, 0, 0, 0); // Set hours, minutes, seconds, and milliseconds to 0
+        this.startDate = startDate.toISOString().split('T')[0]; // Convert to ISO string and extract the date part
+        return next;
+
+})
+CourseSchema.pre('save', function(next) {
+    if (this.endDate) return next()
+        const endDate = new Date(this.endDate);
+        endDate.setHours(0, 0, 0, 0).toISOString().split('T')[0]; // Set hours, minutes, seconds, and milliseconds to 0
+        ; // Convert to ISO string and extract the date part
+        return next;
+
+})
+
 module.exports = mongoose.model('Course', CourseSchema);
 

@@ -3,7 +3,7 @@ require('dotenv').config()
 require('./config/database');
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 // favicon is NEW - for server routing
 const logger = require('morgan');
 const checkToken = require('./config/checkToken')
@@ -13,7 +13,7 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 
-app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 // Configure both serve-favicon & static middleware to serve from the production 'build' folder
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(checkToken)

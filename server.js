@@ -23,7 +23,7 @@ app.use(checkToken)
 app.use('/api/courses', require('./routes/api/courses'))
 app.use('/api/users', require('./routes/api/users'))
 
-
+// asldkalpdsfjal;sdkfjasdjk;alsdjf??
 // ----------------- DEPLOYMENT -------------------
 if (process.env.NODE_ENV === 'production'){
   app.use(express.static('oncourse/build"'))

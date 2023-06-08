@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import EditCourseForm from './EditCourseForm/EditCourseForm'
+import CourseStartDate from '../DatePicker/CourseStardDate'
 
 // setCourse is added so that editForm can be passed the "new" course information.
 export default function CourseDetail({course, setCourse, handleDelete}){

@@ -9,7 +9,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   //! root.render, the thing that kicks it all off!
   <React.StrictMode>
-    {/* VERY.POPULAR.PATTERN below - React Wrapper */}
     <Router>
       <App />
     </Router>

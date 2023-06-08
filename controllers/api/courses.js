@@ -14,6 +14,7 @@ async function index(req, res) {
         //! 1 OF 5 - INDEX.
         //! const courses = await Course.find()
         const courses = await Course.find()
+        console.log(courses)
         res.status(200).json(courses)
     }catch(err){
         res.status(400).json(err)

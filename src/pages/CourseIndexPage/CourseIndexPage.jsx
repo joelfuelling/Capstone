@@ -12,7 +12,7 @@ export default function CourseIndexPage() {
            setCourses(courses)
            setTimeout(() => {
                 setLoading(false)
-           }, 400)
+           }, 500)
         }
         getCourses()
     }, []) //! This dependency array stops the cycle of "State updated -> rerender -> useEffect (updating state) -> rerender, etc...

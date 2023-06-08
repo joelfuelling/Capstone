@@ -83,8 +83,10 @@ export default function NewCourseForm(){
                         <option value="Sunday">Sunday</option>
                     </select>
                 <button>Create Course</button>
+                
                 { error && <p>{JSON.stringify(error)}</p>}
             </form>
+            
         </> 
     )
 }

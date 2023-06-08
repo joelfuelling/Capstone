@@ -1,7 +1,7 @@
 import {useRef, useState} from 'react'
 import {useNavigate, useParams } from 'react-router-dom'
-
 import { createCourseRequest } from '../../utilities/courses-api'
+import CourseStartDate from '../DatePicker/CourseStardDate'
 export default function NewCourseForm(){
     const navigate = useNavigate()
     const nameRef = useRef('')
@@ -45,7 +45,7 @@ export default function NewCourseForm(){
             const newCourseResponse = await createCourseRequest(newCourse)
             console.log(newCourseResponse)
             navigate('/courses')
-        //catach and set the error if there is one.
+        //catch and set the error if there is one.
         }catch(err){
             setError(err)
         }  

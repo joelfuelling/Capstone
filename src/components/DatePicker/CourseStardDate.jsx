@@ -10,7 +10,6 @@ export default function CourseStartDate({course}){
         const day = date.getDate()
         const year = date.getFullYear()
         const newStartDate = `${month}, ${day},${year}`
-        // Pass start time here?
         console.log(newStartDate)
         return formattedStartDate
     }

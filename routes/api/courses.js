@@ -5,7 +5,7 @@ const ensureLoggedin = require('../../config/ensureLoggedIn')
 const course = require('../../models/course')
 
 // BASE_URL: /api/courses
-router.get ('/', coursesController.index)
+router.get ('/', ensureLoggedin, coursesController.index)
 router.post('/', coursesController.create)
 router.get('/:id', coursesController.detail)
 router.delete('/:id', coursesController.deleteCourse)

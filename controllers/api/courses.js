@@ -13,8 +13,9 @@ async function index(req, res) {
     try {
         //! 1 OF 5 - INDEX.
         //! const courses = await Course.find()
-        const courses = await Course.find()
-        console.log(courses)
+        const userId = req.user._id
+        console.log(req.user._id)
+        const courses = await Course.find({ user: userId})
         res.status(200).json(courses)
     }catch(err){
         res.status(400).json(err)
@@ -25,8 +26,9 @@ async function create(req, res) {
     try {
         //! 2 OF 5 - CREATE.
         //! const newCourse = await Course.create(req.body)
+        //? 'req.body.user = req.user._id' wasn't there and newly created courses did not have the associated users ._id included, so the index page was not returning the users list.
+        req.body.user = req.user._id
         const newCourse = await Course.create(req.body)
-        console.log(req.body)
         res.status(201).json(newCourse)
     }catch(err){
         console.log(err)

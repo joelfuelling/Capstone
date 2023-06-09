@@ -3,6 +3,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewCoursePage from '../NewCoursePage/NewCoursePage';
 import CourseIndexPage from '../CourseIndexPage/CourseIndexPage';
 import CourseDetailPage from '../CourseDetailPage/CourseDetailPage';
+import HomePage from '../HomePage/HomePage';
 import NavBar from '../../components/NavBar/NavBar';
 import AboutPage from '../About/AboutPage';
 //! PAY ATTENTION TO FILE PATHS (above)!
@@ -29,6 +30,7 @@ export default function App() {
       <>
         <NavBar setUser={setUser} user={user}/>
         <Routes>
+          <Route path="/" element ={<HomePage />} />
           <Route path="/about" element ={<AboutPage />} />
           <Route path="/courses" element={<CourseIndexPage />} />
           <Route path="/courses/new" element={<NewCoursePage />} />

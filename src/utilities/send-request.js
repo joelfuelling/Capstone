@@ -4,7 +4,6 @@ export default async function sendRequest(url, method='Get', payload=null){
     // Fetch accepts an options object as the 2nd argument
     // used to include a data payload, set headers, etc. 
     const options = { method };
-    console.log(options)
     if (payload) {
         //? Payload is the "data" .
         //if payload exists, parse the headers data 

@@ -6,14 +6,12 @@ export default function StartDate({course}) {
         const day = date.getDate()
         const year = date.getFullYear()
         const newStartDate = `${month}, ${day}, ${year}`
-        console.log(newStartDate)
         return newStartDate
     }
     const newStartDate = handleStartDate()
     return (
         <>
             <p>Start Date: {newStartDate}</p>
-            {console.log(newStartDate)}
         </>
     )
 }

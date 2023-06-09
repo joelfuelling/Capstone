@@ -24,6 +24,7 @@ export default function NewCourseForm(){
         const selectedDays = Array.from(daysRef.current.options)
         .filter(option => option.selected)
         .map(option => option.value);
+        console.log(selectedDays)
         // Reset the error after submission
         await setError('')
         // Create the newCourse to be added with the current selected values.

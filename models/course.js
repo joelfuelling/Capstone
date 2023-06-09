@@ -26,8 +26,6 @@ const CourseSchema = new Schema({
         // Setting the 'String' type to an [array of 'String's]
         // By making this [String] instead of just String, you allow daysOfWeek to accept an array of strings representing the days of the week. The enum property ensures that only valid days are accepted
         type: [String],
-        enum : ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        default: [],
         required: false,      
     },
     // Possible IceBox: show a supplies_needed list(entered by the user when created) if supplies_provided = false

@@ -26,7 +26,7 @@ async function create(req, res) {
         //! 2 OF 5 - CREATE.
         //! const newCourse = await Course.create(req.body)
         const newCourse = await Course.create(req.body)
-        console.log(newCourse)
+        console.log(req.body)
         res.status(201).json(newCourse)
     }catch(err){
         console.log(err)

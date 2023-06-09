@@ -53,7 +53,6 @@ export default function NewCourseForm(){
 
     return (
         <> 
-        
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name" id="name" >Course name: </label>
                 <input type="text" ref={nameRef}/>
@@ -69,8 +68,8 @@ export default function NewCourseForm(){
                 <input type="date" ref={endRef}/>
                 <label htmlFor="classLength" >Class length: </label>
                 <input type="text" ref={lenRef}/>
-                <label htmlFor="price" >Price($): </label>
-                <input type="number" ref={priceRef}/>
+                <label htmlFor="price" >Price: </label>
+                <input type="number" ref={priceRef} placeholder="$"/>
                 <label htmlFor="daysOfWeek" >Select Days:</label>
                 {/* //! 2 - Modify the select element to allow multiple selections by adding the multiple attribute: */}
                     <select name="daysOfWeek" id="daysOfWeek" ref={daysRef} multiple>

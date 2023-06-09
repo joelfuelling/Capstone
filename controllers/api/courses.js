@@ -29,6 +29,7 @@ async function create(req, res) {
         //? 'req.body.user = req.user._id' wasn't there and newly created courses did not have the associated users ._id included, so the index page was not returning the users list.
         req.body.user = req.user._id
         const newCourse = await Course.create(req.body)
+        console.log(newCourse)
         res.status(201).json(newCourse)
     }catch(err){
         console.log(err)

@@ -17,14 +17,14 @@ import { getUser } from '../../utilities/users-service';
   //? This way, you don't have to constantly log back in (depending on how long it's been)
 
 export default function App() {
-  console.log(window.location)
-  const [user, setUser] = useState(getUser())
+  // The initial value of user is set to the return value of getUser(). This means that when the App component is FIRST RENDERED, it will try to retrieve the user data using getUser() and initialize the user state with that value.
   //top level componenet makes the most sense to include the user in becauase of the conditionsls below for whether there is a user or not.
- 
+  // The useState hook returns an array with two elements. The first element (user) represents the current state value, and the second element (setUser) is a function to update the state value.
+  const [user, setUser] = useState(getUser())
   return (
     <main className="App">
       { user ?
-      //! Add each function to the component (user, and setUser) for each that is needed. !//
+      // Add each function to the component (user, and setUser) for each that is needed.
        //! Nothin will "show" what you intend without the <Route /> added below.
             //! "<Link to="/about">About</Link>" from the NavBar component is what links up with the path="/about" below, which renders the <About Page/> when the "Link" is clicked. This is the simplicity of react-router-dom at work!
       <>

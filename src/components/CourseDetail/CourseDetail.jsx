@@ -3,6 +3,8 @@ import {parseISO} from 'date-fns'
 import EditCourseForm from './EditCourseForm/EditCourseForm'
 import StartDate from '../DatesDisplay/StartDate'
 import EndDate from '../DatesDisplay/EndDate'
+// Dispalying days import below.
+import DaysOfWeek from './daysOfWeek.jsx/daysOfWeek'
 
 // setCourse is added so that editForm can be passed the "new" course information.
 export default function CourseDetail({course, setCourse, handleDelete}){
@@ -23,7 +25,7 @@ export default function CourseDetail({course, setCourse, handleDelete}){
             <StartDate course={course}></StartDate>
             <EndDate course={course}></EndDate>
             <p>Duration: {course.classLength}</p>
-            <p>Class Days: {course.daysOfWeek}</p>
+            <DaysOfWeek course={course} />
             <p>Supplies Provided? 
             {course.suppliesProvided ? 
             <span> Yes</span>

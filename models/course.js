@@ -3,6 +3,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // Keep it simple! 1st model setup idea is below.
 
+// ! const SuppliesSchema = new Schema({
+// !     name: {type: String},
+// !     description: {type: String},
+// !     price: {type: Number},
+// !    purchased: {type: Boolean},
+// ! })
 
 
 const CourseSchema = new Schema({
@@ -27,6 +33,7 @@ const CourseSchema = new Schema({
     // Possible IceBox: show a supplies_needed list(entered by the user when created) if supplies_provided = false
     // suppliesNeeded: {type: String, required: false}
     user: { type: Schema.Types.ObjectId, ref: 'User' },
+    //! supplies: [SuppliesSchema]
 }, {
     timestamps: true,
 })

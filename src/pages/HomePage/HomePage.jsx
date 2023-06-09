@@ -1,8 +1,8 @@
 
-export default function HomePage() {
+export default function HomePage({user}) {
     return (
         <>
-        <h1>Welcome to OnCourse!</h1>
+        <h1>Welcome to OnCourse, {user}</h1>
         </>
     )
 }

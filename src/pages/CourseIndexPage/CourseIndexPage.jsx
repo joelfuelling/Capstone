@@ -8,11 +8,16 @@ export default function CourseIndexPage() {
     // useEffect = //* "When this component loads"
     useEffect(() => {
         async function getCourses(){
-           const courses = await coursesIndexRequest()
-           setCourses(courses)
-           setTimeout(() => {
+            try{
+                const courses = await coursesIndexRequest()
+                setCourses(courses)
+                setTimeout(() => {
                 setLoading(false)
-           }, 250)
+           }, 400)
+            }catch(err){
+                throw new Error(err)
+            }
+           
         }
         getCourses()
     }, []) //! This dependency array stops the cycle of "State updated -> rerender -> useEffect (updating state) -> rerender, etc...

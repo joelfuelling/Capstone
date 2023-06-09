@@ -11,6 +11,7 @@ export async function coursesIndexRequest(){
 }
 
 export async function createCourseRequest(courseData){
+    console.log(courseData)
     return sendRequest(BASE_URL, "POST", courseData)
 }
 

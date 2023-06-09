@@ -8,9 +8,6 @@
 // So, in summary, this line of code {course && <p>{course.name}</p>} checks if the course prop has a value and, if so, renders a <p> element displaying the name property of the course object. It ensures that only if the course prop is provided and has a value, the name of the course will be rendered as a paragraph.
  import {Link} from 'react-router-dom'
 
-
-
-
 export default function CoursesListItem({course}){
     return (
         <>

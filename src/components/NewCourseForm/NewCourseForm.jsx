@@ -1,7 +1,7 @@
 import {useRef, useState} from 'react'
 import {useNavigate, useParams } from 'react-router-dom'
-
 import { createCourseRequest } from '../../utilities/courses-api'
+import CourseStartDate from '../DatePicker/CourseStardDate'
 export default function NewCourseForm(){
     const navigate = useNavigate()
     const nameRef = useRef('')
@@ -24,6 +24,7 @@ export default function NewCourseForm(){
         const selectedDays = Array.from(daysRef.current.options)
         .filter(option => option.selected)
         .map(option => option.value);
+        console.log(selectedDays)
         // Reset the error after submission
         await setError('')
         // Create the newCourse to be added with the current selected values.
@@ -45,7 +46,7 @@ export default function NewCourseForm(){
             const newCourseResponse = await createCourseRequest(newCourse)
             console.log(newCourseResponse)
             navigate('/courses')
-        //catach and set the error if there is one.
+        //catch and set the error if there is one.
         }catch(err){
             setError(err)
         }  
@@ -82,8 +83,10 @@ export default function NewCourseForm(){
                         <option value="Sunday">Sunday</option>
                     </select>
                 <button>Create Course</button>
+                
                 { error && <p>{JSON.stringify(error)}</p>}
             </form>
+            
         </> 
     )
 }

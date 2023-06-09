@@ -8,6 +8,7 @@ import EndDate from '../DatesDisplay/EndDate'
 export default function CourseDetail({course, setCourse, handleDelete}){
     // editForm starts as false so that 'EDIT' appears first, rather than Close Editor
     const [editFormIsOpen, setEditFormIsOpen] = useState(false)
+    const [detailFormIsOpen, setDetailFormIsOpen] = useState(true)
     function toggleEditForm(){
         // Setup the toggle of the edit button to change text (ternary below)
         setEditFormIsOpen((prevState)=> {

@@ -1,5 +1,5 @@
 import {parseISO} from 'date-fns'
-export default function EndDate({course}) {
+export default function EndDateDisplay({course}) {
     const handleEndDate = () => {
         const date = parseISO(course.endDate)
         const month = date.toLocaleDateString('default', {month: 'short'})

@@ -68,6 +68,7 @@ async function updateCourse(req, res){
         //! 5 OF 5 - UPDATE
         //! const updatedCourse = awit Course.findByIdAndUpdate(req.params.id, req.body, {new: true})
     const updatedCourse = await Course.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    req.body.user = req.user._id
     res.status(200).json(updatedCourse)
     } catch(err){
         console.log(err)

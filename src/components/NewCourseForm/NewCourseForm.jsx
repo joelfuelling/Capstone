@@ -1,19 +1,24 @@
 import {useRef, useState} from 'react'
 import {useNavigate, useParams } from 'react-router-dom'
 import { createCourseRequest } from '../../utilities/courses-api'
+import StartDatePick from '../Dates/DatePicker/StartDatePick'
+import EndDatePick from '../Dates/DatePicker/EndDatePick'
 export default function NewCourseForm(){
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
+
     const navigate = useNavigate()
     const nameRef = useRef('')
     const descRef = useRef('')
     const recRef = useRef('')
     const supRef = useRef('')
-    const startRef = useRef('')
-    const endRef = useRef('')
     const lenRef = useRef('')
     const priceRef = useRef('')
     const daysRef = useRef([])
     //! 1 - Update the daysRef reference to hold an array of selected values using useRef([]) instead of useRef(''):
     const [error, setError] = useState('')
+    // Setting displayed date to today by default.
+
     
     async function handleSubmit(e){
         e.preventDefault()
@@ -32,8 +37,8 @@ export default function NewCourseForm(){
             description: descRef.current.value,
             recurring: recRef.current.checked,
             suppliesProvided: supRef.current.checked,
-            startDate: startRef.current.value,
-            endDate: endRef.current.value,
+            startDate: startDate,
+            endDate: endDate,
             classLength: lenRef.current.value,
             price: priceRef.current.value,
             daysOfWeek: selectedDays,
@@ -62,10 +67,8 @@ export default function NewCourseForm(){
                 <input type="checkbox" ref={recRef}/>
                 <label htmlFor="suppliesProvided" >Supplies provided? </label>
                 <input type="checkbox"ref={supRef}/>
-                <label htmlFor="startDate" >Start date: </label>
-                <input type="date" ref={startRef}/>
-                <label htmlFor="endDate" >End date: </label>
-                <input type="date" ref={endRef}/>
+                <StartDatePick onDateChange={setStartDate} />
+                <EndDatePick onDateChange={setEndDate} />
                 <label htmlFor="classLength" >Class length: </label>
                 <input type="text" ref={lenRef}/>
                 <label htmlFor="price" >Price: </label>
@@ -82,9 +85,8 @@ export default function NewCourseForm(){
                         <option value="Sunday">Sunday</option>
                     </select>
                 <button>Create Course</button>
-                
-                { error && <p>{JSON.stringify(error)}</p>}
             </form>
+            { error && <p>{JSON.stringify(error)}</p>}
             
         </> 
     )

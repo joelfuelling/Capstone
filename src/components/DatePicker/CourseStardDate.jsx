@@ -16,7 +16,7 @@ export default function CourseStartDate({course}){
     const formattedStartDate = handleStartDate()
     return(
         <>
-        <label htmlFor="startDate" >Start date: {formattedStartDate}</label>
+        <label htmlFor="startDate" >Start date: </label>
         <input type="date" ref={startRef}/>
         </>
     )

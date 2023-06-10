@@ -4,7 +4,7 @@
   --tan-2: #E7E2DD;
   --tan-3: #E2D9D1;
   --tan-4: #f6e8d4ec;
-  --orange: #1f78b8;
+  --orange: #9dcf1e72;
   --text-light: #796f68;
   --text-dark: #615954;
 }
@@ -14,15 +14,11 @@
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
-  padding: 2vmin;
-  height: 100vh;
+  background-color: #282c34;
+  color: white;
+  padding: 40px;
+  font-family: Arial;
+  text-align: left;
 }
 
 code {
@@ -31,7 +27,7 @@ code {
 }
 
 #root {
-  height: 100%;
+  height: 80%;
 }
 
 .align-ctr {
@@ -149,4 +145,19 @@ button:disabled, form:invalid button[type="submit"] {
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
+}
+/* New CSS below */
+
+.date-picker {
+  z-index: 2;
+}
+
+.react-datepicker__tab-loop {
+  position: absolute;
+  justify-content: center;
+  top: 0;
+}
+
+.react-datepicker__triangle {
+  display: none !important;
 }

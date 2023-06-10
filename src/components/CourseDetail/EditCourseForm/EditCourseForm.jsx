@@ -1,22 +1,27 @@
 import {useState, useRef} from 'react'
 import {useNavigate} from 'react-router-dom'
 import { updateCourseRequest } from '../../../utilities/courses-api'
+import StartDatePick from '../../Dates/DatePicker/StartDatePick'
+import EndDatePick from '../../Dates/DatePicker/EndDatePick'
 
 export default function EditCourseForm({course, setCourse, setEditFormIsOpen}){
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null)
     const navigate = useNavigate()
     const nameRef = useRef(course.name)
     const descRef = useRef(course.desciption)
     const recRef = useRef(course.recurring)
     const supRef = useRef(course.suppliesProvided)
-    const startRef = useRef(course.startDate)
-    const endRef = useRef(course.endDate)
     const lenRef = useRef(course.classLength)
     const priceRef = useRef(course.price)
     const daysRef = useRef(course.daysOfWeek)
     const [error, setError] = useState('')
+// Setting displayed date to today by default.
+    const today = new Date().toISOString().split('T')[0]
+    
     async function handleSubmit(e){
+        
         e.preventDefault()
-
         const selectedDays = Array.from(daysRef.current.options)
         .filter(option => option.selected)
         .map(option => option.value);
@@ -28,12 +33,13 @@ export default function EditCourseForm({course, setCourse, setEditFormIsOpen}){
             description: descRef.current.value,
             recurring: recRef.current.checked,
             suppliesProvided: supRef.current.checked,
-            startDate: startRef.current.value,
-            endDate: endRef.current.value,
+            startDate: startDate,
+            endDate: endDate,
             classLength: lenRef.current.value,
             price: priceRef.current.value,
             daysfOfWeek: selectedDays,
         }
+        console.log(selectedDays)
         try{
             const newCourse = await updateCourseRequest(course._id, updatedCourse)
             // Lifting state up to the app so the stored course can be changed.
@@ -56,10 +62,8 @@ export default function EditCourseForm({course, setCourse, setEditFormIsOpen}){
                 <input type="checkbox" ref={recRef} defaultChecked={course.recurring}/>
                 <label htmlFor="suppliesProvided" >Supplies provided? </label>
                 <input type="checkbox"ref={supRef} defaultChecked={course.suppliesProvided}/>
-                <label htmlFor="startDate" >Start date: </label>
-                <input type="date" ref={startRef} defaultValue={course.startDate}/>
-                <label htmlFor="endDate" >End date: </label>
-                <input type="date" ref={endRef} defaultValue={course.endDate}/>
+                <StartDatePick onDateChange={setStartDate}></StartDatePick>
+                <EndDatePick onDateChange={setEndDate}></EndDatePick>
                 <label htmlFor="classLength" >Class length: </label>
                 <input type="text" ref={lenRef} defaultValue={course.classLength}/>
                 <label htmlFor="price" >Price($): </label>

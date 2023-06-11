@@ -3,7 +3,7 @@ import EditCourseForm from './EditCourseForm/EditCourseForm'
 import StartDateDisplay from '../Dates/DatesDetailsDisplay/StartDateDisplay'
 import EndDateDisplay from '../Dates/DatesDetailsDisplay/EndDateDisplay'
 // Dispalying days import below.
-import DaysOfWeek from './daysOfWeek.jsx/daysOfWeek'
+import DaysOfWeek from './daysOfWeek/daysOfWeek'
 
 // setCourse is added so that editForm can be passed the "new" course information.
 export default function CourseDetail({course, setCourse, handleDelete}){

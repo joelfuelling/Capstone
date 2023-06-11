@@ -1,8 +1,9 @@
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useState} from 'react'
+import StartDateDisplay from '../../Dates/DatesDetailsDisplay/StartDateDisplay'
 
-export default function StartDatePick({onDateChange}){
+export default function StartDatePick({onDateChange, StartDateDisplay}){
     const [date, setDate] = useState(new Date())
     
     const handleDateChange = (date) => {
@@ -17,6 +18,7 @@ export default function StartDatePick({onDateChange}){
             selected={date}
             withPortal
             onChange={handleDateChange}
+            className="crete-round"
           />
         </>
       );

@@ -61,26 +61,26 @@ export default function NewCourseForm(){
         <div className="form-container">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name" id="name" >Course name: </label>
-                <input type="text" ref={nameRef}/>
+                <input className="crete-round" type="text"  ref={nameRef}/>
                 <label htmlFor="description" id="description">Description: </label>
-                <input type="textarea" ref={descRef} />
+                <textarea className="crete-round" type="textarea" rows="5" cols="40" ref={descRef} />
                 <label htmlFor="recurring">Recurring? </label>
                 <div className="check-box">
                 <input type="checkbox" ref={recRef} id="recurring"/>
                 </div>
                 <label htmlFor="suppliesProvided">Supplies provided? </label>
                 <div className="check-box">
-                <input type="checkbox"ref={supRef} id="supplies-provided"/>
+                <input className="check-box" type="checkbox"ref={supRef} id="supplies-provided"/>
                 </div>
                 <StartDatePick onDateChange={setStartDate} />
                 <EndDatePick onDateChange={setEndDate} />
                 <label htmlFor="classLength" >Class length: </label>
-                <input type="text" ref={lenRef}/>
+                <input className="crete-round" type="text" ref={lenRef}/>
                 <label htmlFor="price" >Price: </label>
-                <input type="number" ref={priceRef} placeholder="$"/>
+                <input className="crete-round" type="number" ref={priceRef} placeholder="$"/>
                 <label htmlFor="daysOfWeek" >Select Days:</label>
                 {/* //! 2 - Modify the select element to allow multiple selections by adding the multiple attribute: */}
-                    <select name="daysOfWeek" id="daysOfWeek" ref={daysRef} multiple>
+                    <select className="crete-round" name="daysOfWeek" id="daysOfWeek" ref={daysRef} multiple>
                         <option value="Monday">Monday</option>
                         <option value="Tuesday">Tuesday</option>
                         <option value="Wednesday">Wednesday</option>

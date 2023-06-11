@@ -4,9 +4,11 @@ import { updateCourseRequest } from '../../../utilities/courses-api'
 import StartDatePick from '../../Dates/DatePicker/StartDatePick'
 import EndDatePick from '../../Dates/DatePicker/EndDatePick'
 
+
+
 export default function EditCourseForm({course, setCourse, setEditFormIsOpen}){
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null)
+    const [startDate, setStartDate] = useState(course.startDate);
+    const [endDate, setEndDate] = useState(course.endDate)
     const navigate = useNavigate()
     const nameRef = useRef(course.name)
     const descRef = useRef(course.desciption)
@@ -37,7 +39,7 @@ export default function EditCourseForm({course, setCourse, setEditFormIsOpen}){
             endDate: endDate,
             classLength: lenRef.current.value,
             price: priceRef.current.value,
-            daysfOfWeek: selectedDays,
+            daysOfWeek: selectedDays,
         }
         console.log(selectedDays)
         try{
@@ -56,26 +58,26 @@ export default function EditCourseForm({course, setCourse, setEditFormIsOpen}){
         <div className="form-container">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name" id="name" >Course name: </label>
-                <input type="text" ref={nameRef} defaultValue={course.name}/>
+                <input className="crete-round" type="text" ref={nameRef} defaultValue={course.name}/>
                 <label htmlFor="description" id="description">Description: </label>
-                <input type="textarea" ref={descRef} defaultValue={course.description} />
-                <label htmlFor="recurring" id="recurring" >Recurring? </label>
+                <textarea className="crete-round" type="textarea" rows="5" cols="40" ref={descRef} defaultValue={course.description} />
+                <label htmlFor="recurring" >Recurring? </label>
                 <div className="check-box">
                     <input type="checkbox" ref={recRef} defaultChecked={course.recurring}/>
                 </div>
                 <label htmlFor="suppliesProvided" >Supplies provided? </label>
                 <div className="check-box">
-                <input type="checkbox"ref={supRef} defaultChecked={course.suppliesProvided}/>
+                <input type="checkbox"ref={supRef} defaultChecked={course.suppliesProvided} className="check-box"/>
                 </div>
                 <StartDatePick onDateChange={setStartDate}></StartDatePick>
                 <EndDatePick onDateChange={setEndDate}></EndDatePick>
                 <label htmlFor="classLength" >Class length: </label>
-                <input type="text" ref={lenRef} defaultValue={course.classLength}/>
+                <input className="crete-round" type="text" ref={lenRef} defaultValue={course.classLength}/>
                 <label htmlFor="price" >Price($): </label>
-                <input type="number" ref={priceRef} defaultValue={course.price}/>
+                <input className="crete-round" type="number" ref={priceRef} defaultValue={course.price}/>
                 <label htmlFor="daysOfWeek" >Select Days:</label>
                 {/* //! 2 - Modify the select element to allow multiple selections by adding the multiple attribute: */}
-                    <select name="daysOfWeek" id="daysOfWeek" ref={daysRef} defaultValue={course.daysOfWeek} multiple>
+                    <select className="crete-round" name="daysOfWeek" id="daysOfWeek" ref={daysRef} defaultValue={course.daysOfWeek} multiple>
                         <option value="Monday">Monday</option>
                         <option value="Tuesday">Tuesday</option>
                         <option value="Wednesday">Wednesday</option>

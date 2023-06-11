@@ -1,8 +1,9 @@
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useState} from 'react'
+import EndDateDisplay from '../../Dates/DatesDetailsDisplay/EndDateDisplay'
 
-export default function EndDatePick({onDateChange}){
+export default function EndDatePick({onDateChange, EndDateDisplay}){
     const [date, setDate] = useState(new Date())
     
     const handleDateChange = (date) => {
@@ -17,6 +18,7 @@ export default function EndDatePick({onDateChange}){
             minDate={new Date()}
             selected={date}
             onChange={handleDateChange}
+            className="crete-round"
           />
         </>
       );

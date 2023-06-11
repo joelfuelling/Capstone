@@ -23,8 +23,8 @@
 body {
   background-color: #191d24;
   color: white;
-  padding-top: 3%;
-  padding-left: 6%;
+  padding: 8%;
+  padding-top: 5%;
   padding-bottom: 15vmin;
   font-family: Arial;
   text-align: left;
@@ -40,21 +40,45 @@ body {
 
 form {
   border-radius: 1%;
-  padding: 1vmin;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 4fr;
   gap: 1.25vmin;
   color: var(--text-light);
-  box-shadow: inset 0 -3em 6em rgba(24, 136, 205, 0.34), 0 0 0 0px rgb(255, 255, 255),
-    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
 .form-container {
+  margin-top: 25px;
+  transition: 6s ease-in-out;
   max-width: 800px;
-  padding: 2vmin;
+  padding-left: 4vmin;
+  padding-bottom: 4vmin;
+  padding-right: 1.5vmin;
+  padding-top: 1.5vmin;
   background-color: var(--tan-1);
-  border: .1vmin solid var(--tan-3);
-  border-radius: 1vmin;
+  border: .1.5vmin solid var(--tan-3);
+  border-radius: 1.5vmin;
+  box-shadow: -5px 5px 0 0 rgb(199, 11, 11), -10px 10px 0 0 rgb(230, 117, 10), -15px 15px 0 0 rgba(66, 180, 17, 0.851), -20px 20px 0 0 rgb(27, 78, 248), -25px 25px 0 0 rgb(216, 206, 9), -25px 25px  0 rgba(216, 206, 9, 1), 0 0 10px 0 rgb(255, 255, 255) inset;
+}
+
+.form-container:hover {
+  transition: 6s ease-in-out;
+  max-width: 800px;
+  padding-right: 1.5vmin;
+  padding-top: 1.5vmin;
+  padding-left: 4vmin;
+  padding-bottom: 4vmin;
+  box-shadow: 5px -5px 0 0 rgb(199, 11, 11), 10px -10px 0 0 rgb(230, 117, 10), 15px -15px 0 0 rgba(66, 180, 17, 0.851), 20px -20px 0 0 rgb(27, 78, 248), 25px -25px 0 0 rgb(216, 206, 9), 0 0 10px 0 rgba(0,0,0,1) inset;
+}
+
+.form-container:not(:hover) {
+  transition: 6s ease-in-out;
+  margin-left: 10px;
+  max-width: 800px;
+  padding-right: 4vmin;
+  padding-top: 4vmin;
+  padding-left: 1.5vmin;
+  padding-bottom: 1.5vmin;
+  box-shadow: -5px 5px 0 0 rgb(199, 11, 11), -10px 10px 0 0 rgb(230, 117, 10), -15px 15px 0 0 rgba(66, 180, 17, 0.851), -20px 20px 0 0 rgb(27, 78, 248), -25px 25px 0 0 rgb(216, 206, 9), 0 0 10px 0 rgb(0, 0, 0) inset;
 }
 
 p.error-message {
@@ -73,7 +97,7 @@ input {
   transition: .3s;
   margin: 0;
   padding: 1vmin;
-  font-size: 2.5vmin;
+  font-size: 3vmin;
   border: .15vmin solid white;
   border-radius: .5vmin;
   color: var(--background);
@@ -95,18 +119,19 @@ input:focus {
 }
 
 button, a.button {
-  margin: 1vmin;
-  padding: 1vmin;
+  margin: 1.5vmin;
+  padding: 1.5vmin;
   color: var(--white);
   background-color: var(--text-dark);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .3vmin solid var(--tan-2);
-  border-radius: 1vmin;
+  border: 2px solid var(--tan-2);
+  border-radius: 1.5vmin;
   outline: none;
   cursor: pointer;
+  transition: all .6s ease;
 }
 
 
@@ -118,17 +143,15 @@ button:disabled, form:invalid button[type="submit"] {
 
 button[type="submit"] {
   grid-column: span 2;
-  margin: 1vmin 0 0;
+  margin: 1.5vmin 0 0;
 }
 
 button:hover {
-  font-style: bold;
+  font-weight: bold;
   color: var(--background);
   background-color: var(--chalk-yellow);
   border: 2px solid black;
-  transition: all .4s ease-in-out;
-  -webkit-text-stroke-width: .04rem;
-    -webkit-text-stroke-color: black;
+  transition: all .6s ease;
 }
 /* Dateicker CSS formatting for absolute*/
 /* Newly added CSS below as well. */
@@ -138,6 +161,7 @@ a:visited {
 }
 a {
   text-decoration: none;
+  transition: .3s ease-in-out;
 }
 
 a:hover {
@@ -159,16 +183,15 @@ a:hover {
   margin: 4em;
 }
 
-
 .react-datepicker__day-names {
   white-space: nowrap;
   /* border-top: .11em solid rgba(1, 1, 1, 0.182); */
 }
 .react-datepicker {
-  background-color: rgba(167, 103, 34, 0.402);
+  background-color: rgba(30, 29, 27, 0.002);
 }
 .react-datepicker__week {
-  color: rgba(167, 103, 34, 0.402)
+  color: rgba(255, 132, 0, 0.402)
 }
 .react-datepicker__day {
   color: white;
@@ -198,8 +221,6 @@ a:hover {
   border-radius: 50%;
 }
 
-
-
 .react-datepicker__day--keyboard-selected {
   background-color: none;
   color: rgba(37, 20, 3, 0.481);
@@ -214,6 +235,10 @@ a:hover {
 
 a.joel {
   color: rgb(135, 177, 255)
+}
+
+.crete-round {
+  font-family: 'Crete Round', serif;
 }
 
 @media screen and (max-width: 835px){

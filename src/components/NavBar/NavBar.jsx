@@ -15,16 +15,14 @@ export default function NavBar({user, setUser}) {
     return (
         <>
         <nav>
-            <Link to="/about">About</Link>
+            <Link to="/about" className="nav-link">About</Link>
             &nbsp; | &nbsp;
-            <Link to="/courses">Courses List</Link>
+            <Link to="/courses" className="nav-link">Courses List</Link>
             &nbsp; | &nbsp;
-            <Link to="/courses/new">New Course</Link>
-            &nbsp; | &nbsp;
-            <span>Welcome, {user.name}</span>
-            &nbsp; | &nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
+            <Link to="/courses/new" className="nav-link">New Course</Link>
+
+            &nbsp; | &nbsp;<Link to="" onClick={handleLogOut} className="nav-link">Log Out <span className="logout-user">{user.name}</span></Link>
         </nav>
-        <hr></hr>
         </>
     )
 }

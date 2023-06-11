@@ -11,7 +11,7 @@ export default function StartDate({course}) {
     const newStartDate = handleStartDate()
     return (
         <>
-            <p>Start Date: {newStartDate}</p>
+            <p className="start-date-form">Start Date: {newStartDate}</p>
         </>
     )
 }

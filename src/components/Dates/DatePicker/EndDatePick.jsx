@@ -13,7 +13,7 @@ export default function EndDatePick({onDateChange}){
         <>
           <label htmlFor="endDate">End date:</label>
           <DatePicker
-            closeOnScroll={true}
+            withPortal
             minDate={new Date()}
             selected={date}
             onChange={handleDateChange}

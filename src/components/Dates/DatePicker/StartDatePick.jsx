@@ -7,7 +7,7 @@ export default function StartDatePick({onDateChange}){
     
     const handleDateChange = (date) => {
         setDate(date);
-        onDateChange(date); // Call the provided callback function with the selected date
+        onDateChange(date); // Call the provided callback function with the selected date for the NewCourse/EditCourse forms.
       }
       return (
         <>
@@ -15,6 +15,7 @@ export default function StartDatePick({onDateChange}){
           <DatePicker
             minDate={new Date()}
             selected={date}
+            withPortal
             onChange={handleDateChange}
           />
         </>

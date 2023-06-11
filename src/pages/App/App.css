@@ -1,80 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200&family=Crete+Round&family=Poppins:wght@300&family=Quicksand&family=Slabo+27px&display=swap');
 :root {
   --white: #FFFFFF;
-  --tan-1: #FBF9F6;
+  --tan-1: #fbf9f6dc;
   --tan-2: #E7E2DD;
   --tan-3: #E2D9D1;
   --tan-4: #f6e8d4ec;
-  --orange: #9dcf1e72;
+  --orange: #c27018d2;
   --text-light: #796f68;
-  --text-dark: #615954;
+  --text-dark: #61595490;
+  --background: #191d24;
+  --chalk-yellow: rgb(255, 166, 0);
 }
 
 *, *:before, *:after {
   box-sizing: border-box;
+  /* border: 1px solid rgba(128, 128, 128, 0.396); */
 }
-
+.App {
+  font-family: 'Crete Round', serif;
+  max-width: 700px;
+}
 body {
-  background-color: #282c34;
+  background-color: #191d24;
   color: white;
-  padding: 40px;
+  padding-top: 3%;
+  padding-left: 6%;
+  padding-bottom: 15vmin;
   font-family: Arial;
   text-align: left;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.error {
+  color: rgb(178, 13, 13);
 }
 
 #root {
   height: 80%;
 }
 
-.align-ctr {
-  text-align: center;
-}
-
-.align-rt {
-  text-align: right;
-}
-
-.smaller {
-  font-size: smaller;
-}
-
-.flex-ctr-ctr {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.flex-j-end {
-  justify-content: flex-end;
-}
-
-.scroll-y {
-  overflow-y: scroll;
-}
-
-.section-heading {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: var(--tan-1);
-  color: var(--text-dark);
-  border: .1vmin solid var(--tan-3);
-  border-radius: 1vmin;
-  padding: .6vmin;
-  text-align: center;
-  font-size: 2vmin;
+form {
+  border-radius: 1%;
+  padding: 1vmin;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1.25vmin;
+  color: var(--text-light);
+  box-shadow: inset 0 -3em 6em rgba(24, 136, 205, 0.34), 0 0 0 0px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
 .form-container {
-  padding: 3vmin;
+  max-width: 800px;
+  padding: 2vmin;
   background-color: var(--tan-1);
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
@@ -85,79 +62,162 @@ p.error-message {
   text-align: center;
 }
 
-form {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 1.25vmin;
-  color: var(--text-light);
-}
-
 label {
-  font-size: 2vmin;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 input {
+  transition: .3s;
+  margin: 0;
   padding: 1vmin;
-  font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
+  font-size: 2.5vmin;
+  border: .15vmin solid white;
   border-radius: .5vmin;
-  color: var(--text-dark);
+  color: var(--background);
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }
 
+.check-box {
+  display: relative;
+  justify-content: center;
+}
+
+input:hover {
+  background-color: rgba(194, 227, 255, 0);
+}
+
 input:focus {
-  border-color: var(--orange);
+  border-color: var(--text-dark);
 }
 
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
-  background-color: var(--orange);
+  background-color: var(--text-dark);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--tan-2);
-  border-radius: .5vmin;
+  border: .3vmin solid var(--tan-2);
+  border-radius: 1vmin;
   outline: none;
   cursor: pointer;
 }
 
-button.btn-sm {
-  font-size: 1.5vmin;
-  padding: .6vmin .8vmin;
-}
-
-button.btn-xs {
-  font-size: 1vmin;
-  padding: .4vmin .5vmin;
-}
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  color: lightgray;
+  background-color: grey;
 }
 
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
 }
-/* New CSS below */
 
-.date-picker {
-  z-index: 2;
+button:hover {
+  font-style: bold;
+  color: var(--background);
+  background-color: var(--chalk-yellow);
+  border: 2px solid black;
+  transition: all .4s ease-in-out;
+  -webkit-text-stroke-width: .04rem;
+    -webkit-text-stroke-color: black;
+}
+/* Dateicker CSS formatting for absolute*/
+/* Newly added CSS below as well. */
+
+a:visited {
+  color: inherit;
+}
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color:rgb(255, 166, 0);
+  transition: .3s ease-in-out;
+  text-decoration: underline
 }
 
 .react-datepicker__tab-loop {
   position: absolute;
-  justify-content: center;
   top: 0;
 }
 
 .react-datepicker__triangle {
   display: none !important;
+}
+
+.edit-container {
+  margin: 4em;
+}
+
+
+.react-datepicker__day-names {
+  white-space: nowrap;
+  /* border-top: .11em solid rgba(1, 1, 1, 0.182); */
+}
+.react-datepicker {
+  background-color: rgba(167, 103, 34, 0.402);
+}
+.react-datepicker__week {
+  color: rgba(167, 103, 34, 0.402)
+}
+.react-datepicker__day {
+  color: white;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+.react-datepicker__day-name {
+  color: rgba(122, 73, 21, 0.801);
+  font-size: 18px;
+}
+.react-datepicker__day:hover {
+  color: rgba(105, 55, 15, 0.71);
+  border-radius: 50%;
+}
+
+.react-datepicker__day--selected {
+  background-color: var(--chalk-yellow);
+  border: 1px solid var(--chalk-yellow);
+  color: rgba(37, 20, 3, 0.481);
+  font-size: 17px;
+  border-radius: 50%;
+}
+.react-datepicker__day--selected:hover {
+  background-color: rgb(255, 166, 0);
+  color: rgba(37, 20, 3, 0.481);
+  font-size: 17px;
+  border-radius: 50%;
+}
+
+
+
+.react-datepicker__day--keyboard-selected {
+  background-color: none;
+  color: rgba(37, 20, 3, 0.481);
+  font-size: 14px;
+  border-radius: none;
+
+}
+
+.logout-user, .loading {
+  color: var(--chalk-yellow);
+}
+
+a.joel {
+  color: rgb(135, 177, 255)
+}
+
+@media screen and (max-width: 835px){
+  label {
+    font-size: .6rem;
+  }
 }

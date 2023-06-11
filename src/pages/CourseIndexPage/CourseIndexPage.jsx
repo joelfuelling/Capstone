@@ -24,7 +24,7 @@ export default function CourseIndexPage() {
     return (
         <>
         <h1>Courses List</h1>
-        { loading ? <p> Loading . . . </p>
+        { loading ? <p className="loading"> Loading . . . </p>
         :
         <CoursesList courses={courses}></CoursesList>
         }

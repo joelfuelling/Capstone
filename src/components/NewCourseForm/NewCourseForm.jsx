@@ -52,21 +52,26 @@ export default function NewCourseForm(){
             navigate('/courses')
         //catch and set the error if there is one.
         }catch(err){
-            setError(err)
+            setError("ERROR: Please fill out all fields")
         } 
     }   
 
     return (
-        <> 
+        <>
+        <div className="form-container">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name" id="name" >Course name: </label>
                 <input type="text" ref={nameRef}/>
                 <label htmlFor="description" id="description">Description: </label>
                 <input type="textarea" ref={descRef} />
-                <label htmlFor="recurring" id="recurring" >Recurring? </label>
-                <input type="checkbox" ref={recRef}/>
-                <label htmlFor="suppliesProvided" >Supplies provided? </label>
-                <input type="checkbox"ref={supRef}/>
+                <label htmlFor="recurring">Recurring? </label>
+                <div className="check-box">
+                <input type="checkbox" ref={recRef} id="recurring"/>
+                </div>
+                <label htmlFor="suppliesProvided">Supplies provided? </label>
+                <div className="check-box">
+                <input type="checkbox"ref={supRef} id="supplies-provided"/>
+                </div>
                 <StartDatePick onDateChange={setStartDate} />
                 <EndDatePick onDateChange={setEndDate} />
                 <label htmlFor="classLength" >Class length: </label>
@@ -84,9 +89,10 @@ export default function NewCourseForm(){
                         <option value="Saturday">Saturday</option>
                         <option value="Sunday">Sunday</option>
                     </select>
-                <button>Create Course</button>
+                <button className='create-button'>Create Course</button>
             </form>
-            { error && <p>{JSON.stringify(error)}</p>}
+            { error && <p className="error">{JSON.stringify(error)}</p>}
+        </div> 
             
         </> 
     )

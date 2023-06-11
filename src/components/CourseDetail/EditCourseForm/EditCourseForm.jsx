@@ -53,15 +53,20 @@ export default function EditCourseForm({course, setCourse, setEditFormIsOpen}){
 
     return (
         <>
-        <form onSubmit={handleSubmit}>
+        <div className="form-container">
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="name" id="name" >Course name: </label>
                 <input type="text" ref={nameRef} defaultValue={course.name}/>
                 <label htmlFor="description" id="description">Description: </label>
                 <input type="textarea" ref={descRef} defaultValue={course.description} />
                 <label htmlFor="recurring" id="recurring" >Recurring? </label>
-                <input type="checkbox" ref={recRef} defaultChecked={course.recurring}/>
+                <div className="check-box">
+                    <input type="checkbox" ref={recRef} defaultChecked={course.recurring}/>
+                </div>
                 <label htmlFor="suppliesProvided" >Supplies provided? </label>
+                <div className="check-box">
                 <input type="checkbox"ref={supRef} defaultChecked={course.suppliesProvided}/>
+                </div>
                 <StartDatePick onDateChange={setStartDate}></StartDatePick>
                 <EndDatePick onDateChange={setEndDate}></EndDatePick>
                 <label htmlFor="classLength" >Class length: </label>
@@ -82,6 +87,8 @@ export default function EditCourseForm({course, setCourse, setEditFormIsOpen}){
                 <button>Edit Course</button>
                 { error && <p>{JSON.stringify(error)}</p>}
             </form>
+        </div>
+            
         </>
     )
 }

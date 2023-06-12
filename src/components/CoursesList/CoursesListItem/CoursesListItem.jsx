@@ -12,7 +12,7 @@ export default function CoursesListItem({course}){
     return (
         <>
         {course && <p>
-            <Link to={`/courses/${course._id}`}>
+            <Link className="list-link" to={`/courses/${course._id}`}>
                 {course.name}
             </Link>
         </p>}

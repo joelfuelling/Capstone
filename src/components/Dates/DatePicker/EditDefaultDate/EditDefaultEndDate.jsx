@@ -1,20 +1,17 @@
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import { useState} from 'react'
 
-export default function StartDatePick({onDateChange}){
-    const [date, setDate] = useState(new Date())
+
+export default function EditDefaultEndDate({onDateChange, initialDate}){
     const handleDateChange = (date) => {
-        setDate(date);
         onDateChange(date); // Call the provided callback function with the selected date for the NewCourse/EditCourse forms.
       }
       return (
         <>
-          <label htmlFor="startDate">Start date:</label>
+          <label htmlFor="endDate">End date:</label>
           <DatePicker
             minDate={new Date()}
-            selected={date}
-            placeholderText='Enter start date'
+            selected={initialDate}
             withPortal
             onChange={handleDateChange}
             className="crete-round"

@@ -11,6 +11,9 @@
   --background: #191d24;
   --chalk-yellow: rgb(255, 166, 0);
 }
+html {
+  min-height: 100%;
+}
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -21,6 +24,7 @@
   max-width: 700px;
 }
 body {
+  background: linear-gradient(150deg,#191d24 20%, #0a3e98fd 120%, #191d24);
   background-color: #191d24;
   color: white;
   padding: 8%;
@@ -39,6 +43,7 @@ body {
 }
 
 form {
+  background-color: var(--);
   border-radius: 1%;
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -46,39 +51,31 @@ form {
   color: var(--text-light);
 }
 
-.form-container {
-  margin-top: 25px;
-  transition: 6s ease-in-out;
-  max-width: 800px;
-  padding-left: 4vmin;
-  padding-bottom: 4vmin;
-  padding-right: 1.5vmin;
-  padding-top: 1.5vmin;
-  background-color: var(--tan-1);
-  border: .1.5vmin solid var(--tan-3);
-  border-radius: 1.5vmin;
-  box-shadow: -5px 5px 0 0 rgb(199, 11, 11), -10px 10px 0 0 rgb(230, 117, 10), -15px 15px 0 0 rgba(66, 180, 17, 0.851), -20px 20px 0 0 rgb(27, 78, 248), -25px 25px 0 0 rgb(216, 206, 9), -25px 25px  0 rgba(216, 206, 9, 1), 0 0 10px 0 rgb(255, 255, 255) inset;
-}
-
 .form-container:hover {
-  transition: 6s ease-in-out;
+  margin-top: 25px;
+  transition: 1.4s ease-in-out;
   max-width: 800px;
-  padding-right: 1.5vmin;
-  padding-top: 1.5vmin;
-  padding-left: 4vmin;
-  padding-bottom: 4vmin;
-  box-shadow: 5px -5px 0 0 rgb(199, 11, 11), 10px -10px 0 0 rgb(230, 117, 10), 15px -15px 0 0 rgba(66, 180, 17, 0.851), 20px -20px 0 0 rgb(27, 78, 248), 25px -25px 0 0 rgb(216, 206, 9), 0 0 10px 0 rgba(0,0,0,1) inset;
+  padding: 3vmin;
+  background-color: var(--tan-1);
+  border: .4vmin solid rgba(255, 255, 255, 0.846);
+  border-radius: 3vmin;
+  color: var(--tan-1);
+  -webkit-box-shadow: -2px -2px 44px 2px rgba(0,34,255,1);
+  -moz-box-shadow: -2px -2px 44px 2px rgba(0,34,255, 1);
+  box-shadow: -2px -2px 44px 8px rgba(34, 86, 255, 0.564);
 }
 
 .form-container:not(:hover) {
-  transition: 6s ease-in-out;
-  margin-left: 10px;
+  margin-top: 25px;
+  transition: 1.4s ease-in-out;
   max-width: 800px;
-  padding-right: 4vmin;
-  padding-top: 4vmin;
-  padding-left: 1.5vmin;
-  padding-bottom: 1.5vmin;
-  box-shadow: -5px 5px 0 0 rgb(199, 11, 11), -10px 10px 0 0 rgb(230, 117, 10), -15px 15px 0 0 rgba(66, 180, 17, 0.851), -20px 20px 0 0 rgb(27, 78, 248), -25px 25px 0 0 rgb(216, 206, 9), 0 0 10px 0 rgb(0, 0, 0) inset;
+  padding: 3vmin;
+  background-color: var(--tan-1);
+  border: .4vmin solid rgba(217, 193, 166, 0.886);
+  border-radius: 3vmin;
+  -webkit-box-shadow: -2px -2px 44px 2px rgba(187, 126, 20, 1);
+  -moz-box-shadow: -2px -2px 44px 2px rgba(187, 126, 20, 1);
+  box-shadow: -2px -2px 22px 2px rgba(204, 154, 67, 0.726);
 }
 
 p.error-message {
@@ -89,36 +86,36 @@ p.error-message {
 label {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   font-size: 1rem;
+}
+.check-box {
+  display: relative;
+  justify-content: center;
 }
 
 input {
-  transition: .3s;
+  transition: .6s;
   margin: 0;
   padding: 1vmin;
-  font-size: 3vmin;
-  border: .15vmin solid white;
+  font-size: .68rem;
+  border: .15vmin solid rgba(205, 136, 39, 0.236);
   border-radius: .5vmin;
   color: var(--background);
   background-image: none !important; /* prevent lastpass */
   outline: none;
 }
 
-.check-box {
-  display: relative;
-  justify-content: center;
-}
-
 input:hover {
-  background-color: rgba(194, 227, 255, 0);
+  transition: .6s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.956);
+  border-color: rgba(52, 107, 203, 0.799);
+  border: 1.5px solid rgb(9, 9, 172)
 }
 
-input:focus {
-  border-color: var(--text-dark);
-}
 
 button, a.button {
+  max-width: 150px;
   margin: 1.5vmin;
   padding: 1.5vmin;
   color: var(--white);
@@ -143,23 +140,23 @@ button:disabled, form:invalid button[type="submit"] {
 
 button[type="submit"] {
   grid-column: span 2;
-  margin: 1.5vmin 0 0;
+  margin: 1.5vmin;
 }
 
 button:hover {
   font-weight: bold;
-  color: var(--background);
+  color: white;
   background-color: var(--chalk-yellow);
-  border: 2px solid black;
+  border: 2px solid rgb(255, 255, 255);
   transition: all .6s ease;
 }
-/* Dateicker CSS formatting for absolute*/
-/* Newly added CSS below as well. */
 
 a:visited {
   color: inherit;
 }
 a {
+  font-size: 24px;
+  color: var(--tan-4);
   text-decoration: none;
   transition: .3s ease-in-out;
 }
@@ -179,29 +176,52 @@ a:hover {
   display: none !important;
 }
 
-.edit-container {
-  margin: 4em;
+.react-datepicker__month {
+  display: relative;
+  margin: 0.4em;
+  text-align: center;
+  max-height: 40vh;
+}
+.react-datepicker__day--keyboard-selected {
+  background-color: transparent;
+    color: white;
+}
+
+.react-datepicker__day--keyboard-selected:hover {
+  background-color: transparent;
+  color: rgba(37, 20, 3, 0.481);
+  font-size: 14px;
+  border-radius: none;
+}
+
+.react-datepicker__portal .react-datepicker__day-name, .react-datepicker__portal .react-datepicker__day, .react-datepicker__portal .react-datepicker__time-name {
+  width: 2.8em;
+  line-height: 2.8em;
 }
 
 .react-datepicker__day-names {
   white-space: nowrap;
-  /* border-top: .11em solid rgba(1, 1, 1, 0.182); */
 }
+
 .react-datepicker {
-  background-color: rgba(30, 29, 27, 0.002);
+  background-color: rgba(30, 29, 27, 0.5);
 }
+
 .react-datepicker__week {
   color: rgba(255, 132, 0, 0.402)
 }
+
 .react-datepicker__day {
   color: white;
   border: 1px solid white;
   border-radius: 50%;
 }
+
 .react-datepicker__day-name {
   color: rgba(122, 73, 21, 0.801);
   font-size: 18px;
 }
+
 .react-datepicker__day:hover {
   color: rgba(105, 55, 15, 0.71);
   border-radius: 50%;
@@ -214,6 +234,7 @@ a:hover {
   font-size: 17px;
   border-radius: 50%;
 }
+
 .react-datepicker__day--selected:hover {
   background-color: rgb(255, 166, 0);
   color: rgba(37, 20, 3, 0.481);
@@ -224,25 +245,121 @@ a:hover {
 .react-datepicker__day--keyboard-selected {
   background-color: none;
   color: rgba(37, 20, 3, 0.481);
-  font-size: 14px;
+  font-size: 17px;
   border-radius: none;
+}
 
+.react-datepicker__day--keyboard-selected:hover {
+  background-color: none;
+  color: rgba(37, 20, 3, 0.481);
+  font-size: 17px;
+  border-radius: none;
 }
 
 .logout-user, .loading {
   color: var(--chalk-yellow);
 }
 
+.nav {
+
+    display: inline-block;
+  
+}
+.inline-block {
+  display: inline-block;
+}
+
 a.joel {
-  color: rgb(135, 177, 255)
+  color: rgb(28, 100, 255);
+  text-decoration: none;
+}
+
+a.joel:hover {
+  color: rgb(216, 154, 20);
+  text-decoration: underline;
 }
 
 .crete-round {
   font-family: 'Crete Round', serif;
 }
 
+p.description-display {
+  font-size: 80%;
+}
+
+.description-display {
+  white-space: pre-wrap;
+}
+
+span.logout {
+  display: inline-block
+}
+
+.list-link {
+  display: relative;
+  width: 200px;
+}
+
+/* Email form CSS */
+
+.jTusZG form input {
+  width: 100%;
+  height: 35px;
+  padding: 7px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid rgb(220, 220, 220);
+}
+
+.jTusZG form label {
+  margin-top: 1rem;
+  color: white;
+}
+.jTusZG form label:hover {
+  margin-top: 1rem;
+  color: white;
+}
+
+.jTusZG form input[type="submit"] {
+  margin-top: 2rem;
+  cursor: pointer;
+  background: var(--text-dark);
+  color: white;
+}
+.jTusZG form input[type="submit"]:hover {
+  margin-top: 2rem;
+  cursor: pointer;
+  background: var(--text-dark);
+  color: white;
+}
+
+.email-label {
+  color: rgba(255, 255, 255, 0.849);
+}
+
 @media screen and (max-width: 835px){
-  label {
-    font-size: .6rem;
+  input {
+    font-size: .7rem;
+  }
+  input {
+    font-size: .75rem;
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+  * {
+    font-size: 96%;
+  }
+  h1 {
+    font-size: 22px;
+    margin-top: 35px;
+  }
+  h3 {
+    margin-top: 25px;
+    font-size: 16px;
+  }
+  a.nav-link {
+    font-size: 16px;
   }
 }

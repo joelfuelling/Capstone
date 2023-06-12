@@ -5,7 +5,7 @@ export default function AuthPage({setUser}) {
     const [userWantsLogin, setUserWantsLogin] = useState(true)
     return (
         <>
-        <h1>Auth Page</h1>
+        <h1>Login, or sign up below.</h1>
         { userWantsLogin ?
         <>
         {/* SUPER IMPORTANT that setUser gets passed to EACH */}

@@ -10,6 +10,8 @@ const Schema = mongoose.Schema;
 // !    purchased: {type: Boolean},
 // ! })
 
+//! supplies: [SuppliesSchema]
+
 
 const CourseSchema = new Schema({
     name: {type: String, required: true},
@@ -31,7 +33,6 @@ const CourseSchema = new Schema({
     // Possible IceBox: show a supplies_needed list(entered by the user when created) if supplies_provided = false
     // suppliesNeeded: {type: String, required: false}
     user: { type: Schema.Types.ObjectId, ref: 'User' },
-    //! supplies: [SuppliesSchema]
 }, {
     timestamps: true,
 })

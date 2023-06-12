@@ -21,7 +21,8 @@ export default function NavBar({user, setUser}) {
             &nbsp; | &nbsp;
             <Link to="/courses/new" className="nav-link">New Course</Link>
 
-            &nbsp; | &nbsp;<Link to="" onClick={handleLogOut} className="nav-link">Log Out <span className="logout-user">{user.name}</span></Link>
+            &nbsp; | &nbsp;<Link to="" onClick={handleLogOut} className="nav-link">
+                <span className="logout"> Log Out <span className="logout-user">{user.name}</span></span></Link>
         </nav>
         </>
     )

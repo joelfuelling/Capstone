@@ -36,7 +36,9 @@ export default function CourseDetail({course, setCourse, handleDelete}){
             :
             <span className="recurring-no"> No</span>
             }       
-            <p>Description: {course.description}</p>
+            <p>Description:</p>
+            <p className="description-display"> 
+            {course.description}</p>
             <hr></hr>
             <button onClick={handleDelete}>DELETE {course.name}</button>
             <button onClick={toggleEditForm}>

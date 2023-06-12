@@ -1,8 +1,9 @@
 import {useState, useRef} from 'react'
 import {useNavigate} from 'react-router-dom'
 import { updateCourseRequest } from '../../../utilities/courses-api'
-import StartDatePick from '../../Dates/DatePicker/StartDatePick'
 import EndDatePick from '../../Dates/DatePicker/EndDatePick'
+import EditDefaultStartDate from '../../Dates/DatePicker/EditDefaultDate/EditDefaultStartDate'
+import EditDefaultEndDate from '../../Dates/DatePicker/EditDefaultDate/EditDefaultEndDate'
 
 
 
@@ -69,8 +70,8 @@ export default function EditCourseForm({course, setCourse, setEditFormIsOpen}){
                 <div className="check-box">
                 <input type="checkbox"ref={supRef} defaultChecked={course.suppliesProvided} className="check-box"/>
                 </div>
-                <StartDatePick onDateChange={setStartDate}></StartDatePick>
-                <EndDatePick onDateChange={setEndDate}></EndDatePick>
+                <EditDefaultStartDate initialDate={new Date(course.startDate)} onDateChange={setStartDate}></EditDefaultStartDate>
+                <EditDefaultEndDate initialDate={new Date(course.endDate)} onDateChange={setEndDate}></EditDefaultEndDate>
                 <label htmlFor="classLength" >Class length: </label>
                 <input className="crete-round" type="text" ref={lenRef} defaultValue={course.classLength}/>
                 <label htmlFor="price" >Price($): </label>

@@ -42,6 +42,12 @@ h3 {
 h3.about {
   margin: 45px 0;
   font-size: 28px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(112, 134, 200, 0.5);
+}
+h5 {
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(112, 134, 200, 0.5);
 }
 .error {
   color: rgb(178, 13, 13);
@@ -143,7 +149,7 @@ button {
   text-decoration: none;
   text-align: center;
   border: 2px solid var(--tan-2);
-  border-radius: 1.5vmin;
+  border-radius: 0.8vmin;
   outline: none;
   cursor: pointer;
   transition: all 0.2s ease;

@@ -11,7 +11,6 @@ export default function AboutPage() {
             <br />
             <h5>Contact <a href="https://joelfuelling.netlify.app/" target="_blank" className="joel" rel="noreferrer">Joel Fuelling</a> below.</h5>
             <br />
-            <hr />
             <EmailJoel></EmailJoel>
         </>
 

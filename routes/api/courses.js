@@ -6,9 +6,9 @@ const course = require('../../models/course')
 
 // BASE_URL: /api/courses
 router.get ('/', ensureLoggedin, coursesController.index)
-router.post('/', coursesController.create)
+router.post('/', ensureLoggedin, coursesController.create)
 router.get('/:id', coursesController.detail)
-router.delete('/:id', coursesController.deleteCourse)
-router.put('/:id', coursesController.updateCourse)
+router.delete('/:id', ensureLoggedin, coursesController.deleteCourse)
+router.put('/:id', ensureLoggedin, coursesController.updateCourse)
 
 module.exports = router

@@ -3,15 +3,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // Keep it simple! 1st model setup idea is below.
 
-// ! const SuppliesSchema = new Schema({
-// !     name: {type: String},
-// !     description: {type: String},
-// !     price: {type: Number},
-// !    purchased: {type: Boolean},
-// ! })
-
-//! supplies: [SuppliesSchema]
-
 
 const CourseSchema = new Schema({
     name: {type: String, required: true},

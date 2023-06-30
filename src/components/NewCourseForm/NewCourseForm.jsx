@@ -1,9 +1,9 @@
-import {useRef, useState} from 'react'
-import {useNavigate, useParams } from 'react-router-dom'
+import { useRef, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { createCourseRequest } from '../../utilities/courses-api'
 import StartDatePick from '../Dates/DatePicker/StartDatePick'
 import EndDatePick from '../Dates/DatePicker/EndDatePick'
-export default function NewCourseForm(){
+export default function NewCourseForm() {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
 
@@ -19,15 +19,15 @@ export default function NewCourseForm(){
     const [error, setError] = useState('')
     // Setting displayed date to today by default.
 
-    
-    async function handleSubmit(e){
+
+    async function handleSubmit(e) {
         e.preventDefault()
-        
-        
+
+
         //? Array.from() is a method that creates a new Array instance from an array-like or iterable object. In this case, it is used to convert the options property of daysRef.current (which is a list of <option> elements) into a regular array.
         const selectedDays = Array.from(daysRef.current.options)
-        .filter(option => option.selected)
-        .map(option => option.value);
+            .filter(option => option.selected)
+            .map(option => option.value);
         console.log(selectedDays)
         // Reset the error after submission
         await setError('')
@@ -50,37 +50,37 @@ export default function NewCourseForm(){
             const newCourseResponse = await createCourseRequest(newCourse)
             console.log(newCourseResponse)
             navigate('/courses')
-        //catch and set the error if there is one.
-        }catch(err){
+            //catch and set the error if there is one.
+        } catch (err) {
             setError("ERROR: Please fill out all fields")
-        } 
-    }   
+        }
+    }
 
     return (
         <>
-        <div className="form-container">
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="name" id="name" >Course name: </label>
-                <input className="crete-round" type="text"  ref={nameRef}/>
-                <label htmlFor="description" id="description">Description: </label>
-                <textarea className="crete-round" type="textarea" rows="5" cols="40" ref={descRef} />
-                <label htmlFor="recurring">Recurring? </label>
-                <div className="check-box">
-                <input type="checkbox" ref={recRef} id="recurring"/>
-                </div>
-                <label htmlFor="suppliesProvided">Supplies provided? </label>
-                <div className="check-box">
-                <input className="check-box" type="checkbox"ref={supRef} id="supplies-provided"/>
-                </div>
-                <StartDatePick onDateChange={setStartDate} />
-                <EndDatePick onDateChange={setEndDate} />
-                <label htmlFor="classLength" >Class length: </label>
-                <input className="crete-round" type="text" ref={lenRef}/>
-                <label htmlFor="price" >Price: </label>
-                <input className="crete-round" type="number" ref={priceRef} placeholder="$"/>
-                <label htmlFor="daysOfWeek" >Select Days:</label>
-                {/* //! 2 - Modify the select element to allow multiple selections by adding the multiple attribute: */}
-                    <select className="crete-round" name="daysOfWeek" id="daysOfWeek" ref={daysRef} multiple>
+            <div className="form-container">
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="name" id="name" >Course name: </label>
+                    <input className="crete-round" type="text" ref={nameRef} />
+                    <label htmlFor="description" id="description">Description: </label>
+                    <textarea className="crete-round" type="textarea" rows="5" cols="40" ref={descRef} />
+                    <label htmlFor="recurring">Recurring? </label>
+                    <div className="check-box">
+                        <input type="checkbox" ref={recRef} id="recurring" />
+                    </div>
+                    <label htmlFor="suppliesProvided">Supplies provided? </label>
+                    <div className="check-box">
+                        <input type="checkbox" ref={supRef} id="supplies-provided" />
+                    </div>
+                    <StartDatePick onDateChange={setStartDate} />
+                    <EndDatePick onDateChange={setEndDate} />
+                    <label htmlFor="classLength" >Class length: </label>
+                    <input className="crete-round" type="text" ref={lenRef} />
+                    <label htmlFor="price" >Price: </label>
+                    <input className="crete-round" type="number" ref={priceRef} placeholder="$" />
+                    <label htmlFor="daysOfWeek" >Select Days:</label>
+                    {/* //! 2 - Modify the select element to allow multiple selections by adding the multiple attribute: */}
+                    <select className="crete-round days-of-week" name="daysOfWeek" id="daysOfWeek" ref={daysRef} multiple>
                         <option value="Monday">Monday</option>
                         <option value="Tuesday">Tuesday</option>
                         <option value="Wednesday">Wednesday</option>
@@ -89,11 +89,11 @@ export default function NewCourseForm(){
                         <option value="Saturday">Saturday</option>
                         <option value="Sunday">Sunday</option>
                     </select>
-                <button className='create-button'>Create Course</button>
-            </form>
-            { error && <p className="error">{JSON.stringify(error)}</p>}
-        </div> 
-            
-        </> 
+                    <button className='create-and-edit-button'>Create Course</button>
+                </form>
+                {error && <p className="error">{JSON.stringify(error)}</p>}
+            </div>
+
+        </>
     )
 }

@@ -44,15 +44,13 @@ export default function NewCourseForm() {
             daysOfWeek: selectedDays,
             // Array.from(daysRef.current.selectedOptions).map(day => day.value),
         }
-        console.log(newCourse)
         // 1 - 'Try' to create a newresopnse from the db with the above newCourse
         try {
             const newCourseResponse = await createCourseRequest(newCourse)
-            console.log(newCourseResponse)
             navigate('/courses')
             //catch and set the error if there is one.
         } catch (err) {
-            setError("ERROR: Please fill out all fields")
+            setError(`ERROR: Please fill out all fields`)
         }
     }
 

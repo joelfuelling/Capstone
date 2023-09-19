@@ -1,10 +1,11 @@
 
-OnCourse is a course tracking application. Users can log a class, price, if supplies are needed, and other various pieces of information as well as when the class takes place. This may change slightly as the model is confirmed to ve viable for MVP in the time alotted to complete the project.
+OnCourse is a course tracking application. Users can log a class, price, if supplies are needed, and other various pieces of information as well as when the class takes place. 
 
 Technologies used.
 JavaScript
 HTML/CSS
 MERN stack
+emailjs
 
 Other integrations
 DatePicker (https://reactdatepicker.com/)

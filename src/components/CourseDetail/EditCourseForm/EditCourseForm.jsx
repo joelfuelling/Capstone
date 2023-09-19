@@ -3,7 +3,7 @@ import { updateCourseRequest } from '../../../utilities/courses-api'
 import EditDefaultStartDate from '../../Dates/DatePicker/EditDefaultDate/EditDefaultStartDate'
 import EditDefaultEndDate from '../../Dates/DatePicker/EditDefaultDate/EditDefaultEndDate'
 
-
+//! Pay attention to how 'setCourse' is being used to lift state below.
 
 export default function EditCourseForm({ course, setCourse, setEditFormIsOpen }) {
     const [startDate, setStartDate] = useState(course.startDate);
@@ -40,7 +40,7 @@ export default function EditCourseForm({ course, setCourse, setEditFormIsOpen })
         console.log(selectedDays)
         try {
             const newCourse = await updateCourseRequest(course._id, updatedCourse)
-            // Lifting state up to the app so the stored course can be changed.
+            //! Lifting state up to the app so the stored course can be changed.
             setCourse(newCourse)
             setEditFormIsOpen(false)
 

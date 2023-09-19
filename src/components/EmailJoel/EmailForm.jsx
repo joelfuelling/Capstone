@@ -1,42 +1,57 @@
-import styled from 'styled-components'
-import emailjs from '@emailjs/browser'
-import { init } from '@emailjs/browser'
-import { useRef } from 'react'
-init("1YXZLLW_oC03DySRz")
+import styled from 'styled-components';
+import emailjs from '@emailjs/browser';
+import { init } from '@emailjs/browser';
+import { useRef, useState } from 'react';
 
-
+init("1YXZLLW_oC03DySRz");
 
 export default function EmailJoel() {
-    const form = useRef()
-    const sendEmail = (e) => {
-        e.preventDefault()
-        emailjs.sendForm(
-            'service_cz9mhew',
-            'template_vr27xge',
-            form.current,
-            '1YXZLLW_oC03DySRz')
-            .then(
-                (result) => {
-                    console.log(result.text)
-                    console.log("Email sent")
-                    e.target.reset()
-                },
-                (error) => {
-                    console.log(error.text)
-                }
-            )
+  const form = useRef();
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    const userName = form.current.user_name.value;
+    const userEmail = form.current.user_email.value;
+    const message = form.current.message.value;
+
+    if (!userName || !userEmail || !message) {
+      setErrorMessage("All fields are required.");
+      return;
     }
-    return <EmailForm>
-        <form ref={form} onSubmit={sendEmail}>
-            <label className="email-label">Name</label>
-            <input className="email-input-field" type="text" name="user_name" placeholder="Who are you?" />
-            <label className="email-label">Email</label>
-            <input className="email-input-field" type="email" name="user_email" placeholder="What's your email?" />
-            <label className="email-label">Message</label>
-            <textarea name="message" placeholder="I can't wait to hear from you!" />
-            <input className="email-input-field" type="submit" value="Send" />
-        </form>
+
+    emailjs.sendForm(
+      'service_cz9mhew',
+      'template_vr27xge',
+      form.current,
+      '1YXZLLW_oC03DySRz'
+    )
+      .then(
+        (result) => {
+          e.target.reset();
+          setErrorMessage(null);
+        },
+        (error) => {
+          setErrorMessage("Error sending email.");
+        }
+      );
+  };
+
+  return (
+    <EmailForm>
+      {errorMessage && <div className="error"><span className='red'>Error: </span>{errorMessage}</div>}
+      <form ref={form} onSubmit={sendEmail}>
+        <label className="email-label">Name</label>
+        <input className="email-input-field" type="text" name="user_name" placeholder="Who are you?" />
+        <label className="email-label">Email</label>
+        <input className="email-input-field" type="email" name="user_email" placeholder="What's your email?" />
+        <label className="email-label">Message</label>
+        <textarea name="message" placeholder="I can't wait to hear from you!" />
+        <input className="email-input-field" type="submit" value="Send" />
+      </form>
     </EmailForm>
+  );
 }
 
 const EmailForm = styled.div`

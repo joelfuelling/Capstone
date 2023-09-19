@@ -50,7 +50,12 @@ h5 {
   border-bottom: 1px solid rgba(112, 134, 200, 0.5);
 }
 .error {
-  color: rgb(178, 13, 13);
+  font-size: 30px;
+  color: var(--chalk-yellow);
+}
+
+.red {
+  color: red
 }
 
 #root {

@@ -15,7 +15,7 @@ export default function NavBar({user, setUser}) {
     return (
         <>
         <nav>
-            <Link to="/about" className="nav-link">About</Link>
+            <Link to="/about" className="nav-link" user={user}>About</Link>
             &nbsp; | &nbsp;
             <Link to="/courses" className="nav-link">Courses List</Link>
             &nbsp; | &nbsp;

@@ -29,9 +29,9 @@ export default function App() {
             //! "<Link to="/about">About</Link>" from the NavBar component is what links up with the path="/about" below, which renders the <About Page/> when the "Link" is clicked. This is the simplicity of react-router-dom at work!
       <>
         <NavBar setUser={setUser} user={user}/>
-        <Routes>
+        <Routes user={user}>
           <Route path="/" element ={<HomePage />} />
-          <Route path="/about" element ={<AboutPage />} />
+          <Route path="/about" element ={<AboutPage user={user} />} />
           <Route path="/courses" element={<CourseIndexPage />} />
           <Route path="/courses/new" element={<NewCoursePage />} />
           <Route path="/courses/:courseId" element={<CourseDetailPage />} />

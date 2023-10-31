@@ -22,8 +22,6 @@ export default function NewCourseForm() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-
-
         //? Array.from() is a method that creates a new Array instance from an array-like or iterable object. In this case, it is used to convert the options property of daysRef.current (which is a list of <option> elements) into a regular array.
         const selectedDays = Array.from(daysRef.current.options)
             .filter(option => option.selected)
@@ -42,13 +40,10 @@ export default function NewCourseForm() {
             classLength: lenRef.current.value,
             price: priceRef.current.value,
             daysOfWeek: selectedDays,
-            // Array.from(daysRef.current.selectedOptions).map(day => day.value),
         }
-        // 1 - 'Try' to create a newresopnse from the db with the above newCourse
         try {
             const newCourseResponse = await createCourseRequest(newCourse)
             navigate('/courses')
-            //catch and set the error if there is one.
         } catch (err) {
             setError(`ERROR: Please fill out all fields`)
         }

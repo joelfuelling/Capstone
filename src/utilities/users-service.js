@@ -18,7 +18,7 @@ export function getToken() {
     // A JWT's exp is expressed in seconds, not milliseconds, so convert
     if (payload.exp < Date.now() / 1000) {
         // Token has expired - remove it from localStorage
-        //! Currenly setup to expire in 24 hours... that's WAY too short. Make it a bit longer in your app.
+        //! Currently setup to expire in 24 hours... that's WAY too short. Make it a bit longer in your app.
         localStorage.removeItem('token')
         return null
     }

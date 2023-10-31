@@ -10,7 +10,7 @@ export function signUp(userData) {
     return sendRequest(BASE_URL, 'POST', userData);
   }
 
-//? Compare the similarities and differences betwen the signUp (above) and login (below)
+//? Compare the similarities and differences between the signUp (above) and login (below)
 export function login(credentials) {
     return sendRequest(`${BASE_URL}/login`, 'POST', credentials);
 }

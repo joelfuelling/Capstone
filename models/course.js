@@ -21,8 +21,6 @@ const CourseSchema = new Schema({
         type: [String],
         required: false,      
     },
-    // Possible IceBox: show a supplies_needed list(entered by the user when created) if supplies_provided = false
-    // suppliesNeeded: {type: String, required: false}
     user: { type: Schema.Types.ObjectId, ref: 'User' },
 }, {
     timestamps: true,
